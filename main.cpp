@@ -227,6 +227,10 @@ void gameLoop() {
     }
 }
 
+void mapGen() {
+
+}
+
 int main() {
     gameLoop();
     return 0;
