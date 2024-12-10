@@ -19,7 +19,7 @@ https://www.w3schools.com/cpp/cpp_arrays_multi.asp
 
 ## Points Deserved
 | | 0 points | 10 points | 20 points |
-|---|---|---|
+|---|---|---|---|
 |Concepts: Is-A or Has-A class relationship|No such C++ class relationship present in the program|Class relationship is trivial, poorly designed, and/or poorly implemented|Class relationship is designed well, implemented robustly, and used in the main program in a way that makes sense|
 
 
