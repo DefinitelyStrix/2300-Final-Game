@@ -22,7 +22,12 @@ https://www.w3schools.com/cpp/cpp_arrays_multi.asp
 |---|---|---|---|
 |Concepts: Is-A or Has-A class relationship|No such C++ class relationship present in the program|Class relationship is trivial, poorly designed, and/or poorly implemented|Class relationship is designed well, implemented robustly, and used in the main program in a way that makes sense|
 
+| | 0 points | 10 points                                  | 20 points                                          |
+|---|---|--------------------------------------------|----------------------------------------------------|
+|Concept: Use of multiple languages|The program only uses one language| The use of multiple languages makes sense. | The amount of work in each language is impressive. |
 
-
+|                                         | 0 points                                         | 10 points                                           | 20 points                                                        |
+|-----------------------------------------|--------------------------------------------------|-----------------------------------------------------|------------------------------------------------------------------|
+| Concept: Use of State-based programming | The program does not use State-based programming | The use of State-based programming is not redundant | State based programming is used to substantially streamline code |
 
 
