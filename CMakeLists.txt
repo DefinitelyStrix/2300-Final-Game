@@ -7,4 +7,6 @@ add_executable(2300_Final_Game
     main.cpp
         Enemy.h
         Enemy.cpp
-        Orc.cpp)
+        Orc.cpp
+        Goblin.cpp
+        Dragon.cpp)
