@@ -9,7 +9,7 @@ filename = "map"
 filehandle = ".txt"
 for i in range(1,4):
     map = mapGen.buildMap()
-    
+
     # Add padding to avoid excess testing in C++
     for row in map:
         row.append(9)
@@ -85,7 +85,6 @@ for i in range(1,4):
 #     # This is Python's way of calling the command line. We use it to compile the C++ files.
 #     subprocess.check_output("g++ -std=c++17 main.cpp",stdin=None,stderr=subprocess.STDOUT,shell=True)
 # except subprocess.CalledProcessError as e:
-#     # There were compiler errors in BubbleSort.cpp. Print out the error message and exit the program.
 #     print("<p>",e.output,"</p>")
 #     raise SystemExit
 
