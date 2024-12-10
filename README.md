@@ -10,7 +10,7 @@ State-based programming from module 4, allowing for dynamic player input. This a
 Is-A relationships from module 2, allowing for a general Enemy object to be differentiated into three different types, a Goblin, an Orc, and a Dragon. Each enemy has different stats, and therefore has different constructors. However the individual stats can be reached in the same way, making the Is-A relationship fitting. 
 
 ## Operating System Required
-This project was tested on both Windows and Mac machines, and should work on either. Mac has been more thoroughly tested, however.
+This project was built on both Mac and Windows, but final testing/compiling was performed on a Mac. Project is completely stable on Mac, but may/may not run on Windows.
 No added installations are necessary.
 To play, simply run mapTester.py from terminal (May require sudo privileges)
 
