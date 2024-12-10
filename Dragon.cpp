@@ -5,6 +5,7 @@
 #include "Dragon.h"
 
 Dragon::Dragon(int h, int a, int reward) : Enemy(h, a, reward) {
+    name = "Dragon";
     maxHealth = h;
     health = h;
     attack = a;
@@ -12,8 +13,9 @@ Dragon::Dragon(int h, int a, int reward) : Enemy(h, a, reward) {
 }
 
 Dragon::Dragon() : Enemy() {
-    maxHealth = 40;
-    health = 40;
-    attack = 8;
-    goldReward = 10;
+    name = "Dragon";
+    maxHealth = 80;
+    health = maxHealth;
+    attack = 15;
+    goldReward = 40;
 }

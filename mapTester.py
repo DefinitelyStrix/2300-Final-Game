@@ -96,4 +96,11 @@ for i in range(1,4):
 #     p = Popen(['./a.out '+str(0)], shell=True, stdout=PIPE, stdin=PIPE)
 #     os.remove("a.out")
 
+subprocess.run(["g++", "-std=gnu++2b", "main.cpp", "Dragon.cpp", "Enemy.cpp", "Goblin.cpp", "Orc.cpp", "-o", "cpp"])
+
+if platform.system() == 'Windows':
+    subprocess.run(["./cpp.exe"])
+else:
+    subprocess.run(["./cpp"])
+
                 

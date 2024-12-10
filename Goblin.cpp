@@ -5,6 +5,7 @@
 #include "Goblin.h"
 
 Goblin::Goblin(int h, int a, int reward) : Enemy(h, a, reward) {
+    name = "Goblin";
     maxHealth = h;
     health = h;
     attack = a;
@@ -12,8 +13,9 @@ Goblin::Goblin(int h, int a, int reward) : Enemy(h, a, reward) {
 }
 
 Goblin::Goblin() : Enemy() {
-    maxHealth = 40;
+    name = "Goblin";
+    maxHealth = 20;
     health = 40;
-    attack = 8;
-    goldReward = 10;
+    attack = 4;
+    goldReward = 5;
 }

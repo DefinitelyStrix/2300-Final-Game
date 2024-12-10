@@ -12,6 +12,7 @@ Is-A relationships from module 2, allowing for a general Enemy object to be diff
 ## Operating System Required
 This project was tested on both Windows and Mac machines, and should work on either. Mac has been more thoroughly tested, however.
 No added installations are necessary.
+To play, simply run mapTester.py from terminal (May require sudo privileges)
 
 ## Citations and Coding References
 https://stackoverflow.com/questions/43629363/how-to-check-if-a-string-contains-a-char
@@ -30,4 +31,12 @@ https://www.w3schools.com/cpp/cpp_arrays_multi.asp
 |-----------------------------------------|--------------------------------------------------|-----------------------------------------------------|------------------------------------------------------------------|
 | Concept: Use of State-based programming | The program does not use State-based programming | The use of State-based programming is not redundant | State based programming is used to substantially streamline code |
 
+|                           | 0 points                     | 10 points                          | 20 points                                                                                                |
+|---------------------------|------------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Concept: Input Validation | There is no input validation | Input validation prevents crashing | Input validation prevents the user from interacting with the program in unintended ways without crashing |
 
+|          | 0 points           | 10 points                          | 20 points                                                                      |
+|----------|--------------------|------------------------------------|--------------------------------------------------------------------------------|
+| Stablity | Does not build/run | Has occasional crash/infinite loop | No instances of crashing or instances where the program can no longer function |
+
+All together, meaning the project should be worth a total of at least 100 points.

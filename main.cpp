@@ -78,7 +78,7 @@ public:
 
 // Shop function
 void shop(Character& player) {
-    cout << "\nWelcome to the shop! Choose an option:\n";
+    cout << "\nWelcome to the shop! You have " << player.gold << " gold. Choose an option:\n";
     cout << "1. Increase Attack (Cost: 10 gold)\n";
     cout << "2. Increase Max Health (Cost: 10 gold)\n";
     cout << "3. Heal (Cost: 5 gold)\n";
@@ -133,7 +133,7 @@ void combat(Character& player, Enemy& enemy) {
     cout << "\nYou encountered a " << enemy.name << "!\n";
 
     while (player.currentHealth > 0 && enemy.health > 0) {
-        cout << "Your turn! Choose an action:\n";
+        cout << "Your turn! You have " << player.currentHealth << " HP. Choose an action:\n";
         cout << "1. Attack\n";
         cout << "2. Defend\n";
         cout << "3. Run\n";
@@ -223,7 +223,7 @@ void gameLoop() {
     Orc orc;
     Dragon dragon;
     string map[9][9];
-    ifstream f("../map1.txt");
+    ifstream f("map1.txt");
     string line;
     int col = 0;
     int row = 0;
@@ -327,7 +327,6 @@ void gameLoop() {
 
 
 int main() {
-
     gameLoop();
     return 0;
 }
