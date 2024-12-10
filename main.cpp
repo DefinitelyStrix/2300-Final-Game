@@ -137,23 +137,31 @@ void combat(Character& player, Enemy& enemy) {
         cout << "1. Attack\n";
         cout << "2. Defend\n";
         cout << "3. Run\n";
+        bool selection = false;
         int action;
-        cin >> action;
+        while (!selection) {
+            cin >> action;
 
-        // Clear the input buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            // Clear the input buffer
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        if (action == 1) {
-            enemy.health -= player.attack;
-            cout << "You attacked the enemy for " << player.attack << " damage!\n";
-        } else if (action == 2) {
-            cout << "You defended, reducing incoming damage by 50% next turn!\n";
-        } else if (action == 3) {
-            if (rand() % 100 < 80) {
-                cout << "You successfully ran away!\n";
-                return;
+            if (action == 1) {
+                enemy.health -= player.attack;
+                cout << "You attacked the enemy for " << player.attack << " damage!\n";
+                selection = true;
+            } else if (action == 2) {
+                cout << "You defended, reducing incoming damage by 50% next turn!\n";
+                selection = true;
+            } else if (action == 3) {
+                if (rand() % 100 < 80) {
+                    cout << "You successfully ran away!\n";
+                    return;
+                } else {
+                    cout << "Failed to escape!\n";
+                    selection = true;
+                }
             } else {
-                cout << "Failed to escape!\n";
+                cout << "Invalid input!" << endl;
             }
         }
 
@@ -316,6 +324,9 @@ void gameLoop() {
             } else {
                 combat(player, dragon);
             }
+        }
+        if (player.currentHealth <= 0) {
+            return;
         }
 
         // Random shop
