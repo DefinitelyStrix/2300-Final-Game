@@ -25,6 +25,11 @@ public:
         cout << "You are fully healed!" << endl;
     }
 
+    void setPos(int xPos, int yPos) {
+        x = xPos;
+        y = yPos;
+    }
+
     void displayStats() const {
         cout << "\n--- Player Stats ---\n";
         cout << "Current Health: " << currentHealth << "/" << maxHealth << endl;
@@ -37,25 +42,26 @@ public:
     bool move(char direction, string map[9][9]) {
         switch (direction) {
             case 'w':
-                if (map[x][y].find('0')) {
-                    y++;
+                cout << map[x][y] << endl;
+                if (map[x][y].find('0') < map[x][y].length()) {
+                    y--;
                     return true;
                 }
                 return false;
             case 'a':
-                if (map[x][y].find('2')) {
+                if (map[x][y].find('2') < map[x][y].length()) {
                     x--;
                     return true;
                 }
                 return false;
             case 's':
-                if (map[x][y].find('1')) {
-                    y--;
+                if (map[x][y].find('1') < map[x][y].length()) {
+                    y++;
                     return true;
                 }
                 return false;
             case 'd':
-                if (map[x][y].find('3')) {
+                if (map[x][y].find('3') < map[x][y].length()) {
                     x++;
                     return true;
                 }
@@ -180,6 +186,48 @@ void combat(Character& player, Enemy& enemy) {
     }
 }
 
+// Draw current tile
+void drawRoom(string map) {
+    string leftWall = "|";
+    string leftDoor = "|";
+    string rightDoor = "|";
+    string rightWall = "|";
+    string upDoor = "-";
+    string upWall = "-";
+    string downWall = "-";
+    string downDoor = "-";
+    string blank = "";
+
+    if (map.find('0') < map.length()) {
+        upDoor = "X";
+    }
+    if (map.find('1') < map.length()) {
+        downDoor = "X";
+    }
+    if (map.find('2') < map.length()) {
+        leftDoor = "X";
+    }
+    if (map.find('3') < map.length()) {
+        rightDoor = "X";
+    }
+
+    cout << upWall << upWall << upWall;
+    cout << upDoor << upDoor << upDoor;
+    cout << upWall << upWall << upWall << endl;
+    cout << leftWall << "       " << rightWall << endl;
+    cout << leftWall << "       " << rightWall << endl;
+    cout << leftDoor << "       " << rightDoor << endl;
+    cout << leftDoor << "       " << rightDoor << endl;
+    cout << leftDoor << "       " << rightDoor << endl;
+    cout << leftWall << "       " << rightWall << endl;
+    cout << leftWall << "       " << rightWall << endl;
+    cout << downWall << downWall << downWall;
+    cout << downDoor << downDoor << downDoor;
+    cout << downWall << downWall << downWall << endl;
+
+
+}
+
 // Movement and main game loop
 void gameLoop() {
     Character player(50, 10, 20);
@@ -192,18 +240,33 @@ void gameLoop() {
     int col = 0;
     int row = 0;
     string growth;
+    bool startPicked = false;
+    int startX;
+    int startY;
+
+    // Iterates through map.txt, created coordinate matrix
     while (getline(f, line)) {
         row = 0;
         growth = "";
         for (char c: line) {
+            // 9 represents empty space
             if (c == '9') {
                 map[row][col] = "9";
                 row++;
             }
+            // concatenates all room openings into single string
             else if (c != '(' && c != ')') {
                 growth += c;
             }
+            // marks end of room openings
+            // continues onto next value
             else if (c == ')') {
+                if (!startPicked) {
+                    startX = row;
+                    startY = col;
+                    startPicked = true;
+                    player.setPos(startX,startY);
+                }
                 map[row][col] = growth;
                 row++;
                 growth = "";
@@ -215,6 +278,7 @@ void gameLoop() {
     srand(static_cast<unsigned>(time(0)));
 
     while (true) {
+        drawRoom(map[player.x][player.y]);
         cout << "\nMove your character (W/A/S/D). Press SPACE to view stats. Press Q to quit.\n";
 
         // Read single character input including space
@@ -229,9 +293,15 @@ void gameLoop() {
             case 'a':
             case 's':
             case 'd':
-                player.move(command, map);
-                cout << "You moved to (" << player.x << ", " << player.y << ").\n";
-                break;
+                if (player.move(command, map)) {
+                    cout << "You moved to (" << player.x << ", " << player.y << ").\n";
+                    break;
+                }
+                else {
+                    cout << "Invalid movement" << endl;
+                    skipRandomEvents = true;
+                    break;
+                }
             case ' ':
                 player.displayStats();
                 skipRandomEvents = true; // Skip random events after stats
@@ -270,6 +340,6 @@ void gameLoop() {
 
 int main() {
 
-//    gameLoop();
+    gameLoop();
     return 0;
 }
