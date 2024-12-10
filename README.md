@@ -40,3 +40,5 @@ https://www.w3schools.com/cpp/cpp_arrays_multi.asp
 | Stablity | Does not build/run | Has occasional crash/infinite loop | No instances of crashing or instances where the program can no longer function |
 
 All together, meaning the project should be worth a total of at least 100 points.
+Note to graders: Project was initially started by Henry Cussatt on different github repository, but we decided to consolidate to this branch later on.
+Original link with dated files: https://github.com/uvmcs2300f2024/Final-Project-hcussatt-jlaraia
