@@ -5,6 +5,8 @@
 #include <string>
 #include <list>
 #include <limits> // For std::numeric_limits
+#include "Enemy.h"
+#include "Orc.h"
 
 using namespace std;
 
@@ -71,22 +73,6 @@ public:
     }
 };
 
-// Enemy class
-class Enemy {
-public:
-    string name;
-    int maxHealth; // Maximum health to reset after encounters
-    int health;
-    int attack;
-    int goldReward;
-
-    Enemy(string n, int h, int a, int reward)
-        : name(n), maxHealth(h), health(h), attack(a), goldReward(reward) {}
-
-    void resetHealth() {
-        health = maxHealth;
-    }
-};
 
 // Shop function
 void shop(Character& player) {
@@ -231,9 +217,9 @@ void drawRoom(string map) {
 // Movement and main game loop
 void gameLoop() {
     Character player(50, 10, 20);
-    Enemy goblin("Goblin", 30, 5, 5);
-    Enemy orc("Orc", 40, 8, 10);
-    Enemy dragon("Dragon", 60, 12, 20);
+//    Enemy goblin("Goblin", 30, 5, 5);
+    Orc orc;
+//    Enemy dragon("Dragon", 60, 12, 20);
     string map[9][9];
     ifstream f("../map1.txt");
     string line;
