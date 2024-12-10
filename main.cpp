@@ -1,7 +1,9 @@
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <list>
 #include <limits> // For std::numeric_limits
 
 using namespace std;
@@ -32,21 +34,34 @@ public:
         cout << "--------------------\n";
     }
 
-    void move(char direction) {
+    bool move(char direction, string map[9][9]) {
         switch (direction) {
             case 'w':
-                y++;
-                break;
+                if (map[x][y].find('0')) {
+                    y++;
+                    return true;
+                }
+                return false;
             case 'a':
-                x--;
-                break;
+                if (map[x][y].find('2')) {
+                    x--;
+                    return true;
+                }
+                return false;
             case 's':
-                y--;
-                break;
+                if (map[x][y].find('1')) {
+                    y--;
+                    return true;
+                }
+                return false;
             case 'd':
-                x++;
-                break;
+                if (map[x][y].find('3')) {
+                    x++;
+                    return true;
+                }
+                return false;
         }
+        return false;
     }
 };
 
@@ -171,6 +186,31 @@ void gameLoop() {
     Enemy goblin("Goblin", 30, 5, 5);
     Enemy orc("Orc", 40, 8, 10);
     Enemy dragon("Dragon", 60, 12, 20);
+    string map[9][9];
+    ifstream f("../map1.txt");
+    string line;
+    int col = 0;
+    int row = 0;
+    string growth;
+    while (getline(f, line)) {
+        row = 0;
+        growth = "";
+        for (char c: line) {
+            if (c == '9') {
+                map[row][col] = "9";
+                row++;
+            }
+            else if (c != '(' && c != ')') {
+                growth += c;
+            }
+            else if (c == ')') {
+                map[row][col] = growth;
+                row++;
+                growth = "";
+            }
+        }
+        col++;
+    }
 
     srand(static_cast<unsigned>(time(0)));
 
@@ -189,7 +229,7 @@ void gameLoop() {
             case 'a':
             case 's':
             case 'd':
-                player.move(command);
+                player.move(command, map);
                 cout << "You moved to (" << player.x << ", " << player.y << ").\n";
                 break;
             case ' ':
@@ -227,11 +267,9 @@ void gameLoop() {
     }
 }
 
-void mapGen() {
-
-}
 
 int main() {
-    gameLoop();
+
+//    gameLoop();
     return 0;
 }

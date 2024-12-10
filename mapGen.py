@@ -239,17 +239,6 @@ def buildMap():
         
 
 
-    # with open('map.txt', 'w') as f:
-    #     for row in map:
-    #         for item in row:
-    #             print(f"Item: {item}")
-    #             if item == 9:
-    #                 f.write(str(item))
-    #             else:
-    #                 f.write("(")
-    #                 for growth in item:
-    #                     f.write(str(growth))
-    #                 f.write(")")
-    #         f.write("\n")
+
 
         

@@ -1,3 +1,3 @@
-C:/Users/Comma/CLionProjects/2300-Final-Game/cmake-build-debug/CMakeFiles/2300_Final_Game.dir
-C:/Users/Comma/CLionProjects/2300-Final-Game/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Comma/CLionProjects/2300-Final-Game/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/hcussatt/Desktop/School Work/Computer Science/cs2300/2300-Final-Game/cmake-build-debug/CMakeFiles/2300_Final_Game.dir
+/Users/hcussatt/Desktop/School Work/Computer Science/cs2300/2300-Final-Game/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hcussatt/Desktop/School Work/Computer Science/cs2300/2300-Final-Game/cmake-build-debug/CMakeFiles/rebuild_cache.dir
